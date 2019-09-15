@@ -1,0 +1,26 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>Optimized-Black_Background.jpg</file>
+        <file>shuffleon.png</file>
+        <file>shuffleoff.png</file>
+        <file>repeatnone.png</file>
+        <file>repeatall.png</file>
+        <file>1471531100_black_2_audio_simple_random.png</file>
+        <file>black-pause-45.png</file>
+        <file>black-play-45.png</file>
+        <file>favunchecked.png</file>
+        <file>favchecked.png</file>
+        <file>previous.png</file>
+        <file>next.png</file>
+        <file>switchviewoff.png</file>
+        <file>switchview.png</file>
+        <file>nextone.png</file>
+        <file>pause.png</file>
+        <file>play.png</file>
+        <file>previousone.png</file>
+        <file>favoff1.png</file>
+        <file>favon11.png</file>
+        <file>shuffleoff11.png</file>
+        <file>shuffleon11.png</file>
+    </qresource>
+</RCC>

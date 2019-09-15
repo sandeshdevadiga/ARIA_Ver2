@@ -1,0 +1,62 @@
+
+    QString path = "/home/emertxe/Music/";
+
+    QDir music(path);
+    QStringList songs;
+    QStringList Artists;
+    QStringList Albums;
+    // Set the current index
+    QMultiHash<QString, int> oArtistHash;
+    QMultiHash<QString, int> oAlbumHash;
+    QMultiHash<QString, int> oGenreHash;
+
+    // Add tracks to playlist
+    songs = music.entryList().filter(".mp3");
+    ui->listWidget->addItems(songs);
+
+    for (int i = 0; i < songs.count(); i++)
+    {
+        //        qDebug() << "song" << songs.value(i);
+        playlist->addMedia(QUrl::fromLocalFile(path+songs.value(i)));
+        QFile song_tag(path+songs.value(i));
+        if(song_tag.open(QIODevice::ReadOnly))
+        {
+            song_tag.seek(song_tag.size()-125);
+
+            song_tag.readLine(31);
+            Artists << song_tag.readLine(31);
+            oArtistHash.insert(Artists.value(i), i);
+            Albums << song_tag.readLine(31);
+            oAlbumHash.insert(Albums.value(i), i);
+
+        }
+
+    }
+    Artists.removeDuplicates();
+    Albums.removeDuplicates();
+    //Creating Album list
+    for(int j =0; j < Albums.count(); j++)
+    {
+        qDebug() << "---------------------";
+        qDebug() << "Album" << Albums.value(j);
+        qDebug() << "---------------------";
+        QList<int> list(oAlbumHash.values(Albums.value(j)));
+        for(int i = 0; i<oAlbumHash.count(Albums.value(j)); i++ )
+        {
+            qDebug()<< songs.value(list.value(i));
+        }
+        list.clear();
+    }
+    //Creating Artist list
+    for(int j =0; j < Artists.count(); j++)
+    {
+        qDebug() << "---------------------";
+        qDebug() << "Artist" << Artists.value(j);
+        qDebug() << "---------------------";
+        QList<int> list(oArtistHash.values(Artists.value(j)));
+        for(int i = 0; i<oArtistHash.count(Artists.value(j)); i++ )
+        {
+            qDebug()<< songs.value(list.value(i));
+        }
+        list.clear();
+    }

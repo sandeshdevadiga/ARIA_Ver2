@@ -1,0 +1,13 @@
+BasicDatatype.h
+cCategory.cpp
+cCategory.h
+cMediaPlayer.cpp
+cMediaPlayer.h
+cMediaPlaylist.cpp
+cMediaPlaylist.h
+main.cpp
+mainwindow.cpp
+mainwindow.h
+moc_mainwindow.cpp
+qrc_images.cpp
+ui_mainwindow.h
